@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+    body{
+        margin-top: 70px;
+        background: #333333;
+        color: #ffffff;
+    }
+    .card{
+        background-color: #2d2f41;
+    }
+    .input-group {
+    margin-bottom: 10px;
+    height: 80px;
+    }
+    
+    .input-group-addon {
+    border-radius: 0.5em !important;
+    width: 100%;
+    background-color: #2d2f41;
+    height: 40px;
+    }
+    form{
+        width: 120%;
+    }
+    #result1, #result2, #result3{
+        width: 60%;
+    }
+    .wynik{
+        width: 30%;
+        text-align: center;
+    }
+    </style>
+    <title>Weight Converter</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h1 class="display-4 text-center mb-4">
+                    Weight Converter
+                </h1>
+                <form>
+                    <div class="form-group">
+                        <div class="form-inline">
+                            <input 
+                            id="lbsInput1"
+                            type="number" 
+                            class="form-control form-control-lg" 
+                            placeholder="Enter Pounds">
+                            <div id="result1">
+                                    <div class="card">
+                                        <div class="form-inline">
+                                            <div class="wynik">
+                                                <h4 class="input-group-addon starter">Grams:</h4>
+                                                <div id="gramsOutput1"></div>
+                                            </div>
+                                            <div class="wynik">
+                                                <h4 class="input-group-addon starter">Kilograms:</h4>
+                                                <div id="kgOutput1"></div>
+                                            </div>
+                                            <div class="wynik">
+                                                <h4 class="input-group-addon starter">Ounces:</h4>
+                                                <div id="ozOutput1"></div>
+                                            </div>
+                                      </div>
+                                    </div>
+                            </div>
+
+                            <input 
+                            id="lbsInput2"
+                            type="number" 
+                            class="form-control form-control-lg" 
+                            placeholder="Enter Kilograms">
+                            <div id="result2">
+                                    <div class="card">
+                                        <div class="form-inline">
+                                            <div class="wynik">
+                                                <h4 class="input-group-addon starter">Grams:</h4>
+                                                <div id="gramsOutput2"></div>
+                                            </div>
+                                            <div class="wynik">
+                                                <h4 class="input-group-addon starter">Tons:</h4>
+                                                <div id="kgOutput2"></div>
+                                            </div>
+                                            <div class="wynik">
+                                                <h4 class="input-group-addon starter">Pounds:</h4>
+                                                <div id="ozOutput2"></div>
+                                            </div>
+                                      </div>
+                                    </div>
+                            </div>
+
+                            <input 
+                            id="lbsInput3"
+                            type="number" 
+                            class="form-control form-control-lg" 
+                            placeholder="Enter Tons">
+                            <div id="result3">
+                                    <div class="card">
+                                        <div class="form-inline">
+                                            <div class="wynik">
+                                                <h4 class="input-group-addon starter">Grams:</h4>
+                                                <div id="gramsOutput3"></div>
+                                            </div>
+                                            <div class="wynik">
+                                                <h4 class="input-group-addon starter">Kilograms:</h4>
+                                                <div id="kgOutput3"></div>
+                                            </div>
+                                            <div class="wynik">
+                                                <h4 class="input-group-addon starter">Pounds:</h4>
+                                                <div id="ozOutput3"></div>
+                                            </div>
+                                      </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        console.log(document.all);
+
+        document.getElementById('result1').style.visibility = 'hidden';
+        document.getElementById('lbsInput1').addEventListener('input', Convert1);
+        function Convert1(e){
+            let lbs = e.target.value;
+            if (lbs != ""){
+                document.getElementById('result1').style.visibility = 'visible';
+                     document.getElementById('gramsOutput1').innerHTML = Math.round(lbs/0.0022046*100)/100;
+                     document.getElementById('kgOutput1').innerHTML = Math.round(lbs/2.2046*100)/100;
+                     document.getElementById('ozOutput1').innerHTML = Math.round(lbs*16*100)/100;   
+            } else {
+                document.getElementById('result1').style.visibility = 'hidden';
+                document.getElementById('lbsInput1').placeholder = 'Enter Pounds';
+            }  
+        }
+
+                document.getElementById('result2').style.visibility = 'hidden';
+        document.getElementById('lbsInput2').addEventListener('input', Convert2);
+        function Convert2(e){
+            let lbs = e.target.value;
+            if (lbs != ""){
+                document.getElementById('result2').style.visibility = 'visible';
+
+                     document.getElementById('gramsOutput2').innerHTML = Math.round(lbs*100*100)/100;
+                     document.getElementById('kgOutput2').innerHTML = Math.round(lbs/1000*100)/100;
+                     document.getElementById('ozOutput2').innerHTML = Math.round(lbs*2.2046*100)/100;   
+            } else {
+                document.getElementById('result2').style.visibility = 'hidden';
+                document.getElementById('lbsInput2').placeholder = 'Enter Kilograms'} 
+        }
+
+                document.getElementById('result3').style.visibility = 'hidden';
+        document.getElementById('lbsInput3').addEventListener('input', Convert3);
+        function Convert3(e){
+            let lbs = e.target.value;
+            if (lbs != ""){
+                document.getElementById('result3').style.visibility = 'visible';
+                     document.getElementById('gramsOutput3').innerHTML = Math.round(lbs*100000*100)/100;
+                     document.getElementById('kgOutput3').innerHTML = Math.round(lbs*1000*100)/100;
+                     document.getElementById('ozOutput3').innerHTML = Math.round(lbs*2200*100)/100;   
+            } else {
+                document.getElementById('result3').style.visibility = 'hidden';
+                document.getElementById('lbsInput3').placeholder = 'Enter Tons';
+            } 
+        }
+        /*Teraz skrypt na czytanie kg*/
+        document.getElementById('lbsInput1')
+        
+
+</script>    
+</body>
+</html>
