@@ -134,7 +134,7 @@
             let lbs = e.target.value;
             if (lbs != ""){
                 document.getElementById('result1').style.visibility = 'visible';
-                     document.getElementById('gramsOutput1').innerHTML = Math.round(lbs/0.0022046*1000)/100;
+                     document.getElementById('gramsOutput1').innerHTML = Math.round(lbs/0.0022046*100)/100;
                      document.getElementById('kgOutput1').innerHTML = Math.round(lbs/2.2046*100)/100;
                      document.getElementById('ozOutput1').innerHTML = Math.round(lbs*16*100)/100;   
             } else {
@@ -150,7 +150,7 @@
             if (lbs != ""){
                 document.getElementById('result2').style.visibility = 'visible';
 
-                     document.getElementById('gramsOutput2').innerHTML = Math.round(lbs*100*100)/100;
+                     document.getElementById('gramsOutput2').innerHTML = Math.round(lbs*1000*100)/100;
                      document.getElementById('kgOutput2').innerHTML = Math.round(lbs/1000*100)/100;
                      document.getElementById('ozOutput2').innerHTML = Math.round(lbs*2.2046*100)/100;   
             } else {
